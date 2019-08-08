@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>DropDown.qml</file>
+        <file>CustomMenuItem.qml</file>
+        <file>DropdownBackground.qml</file>
+    </qresource>
+</RCC>
