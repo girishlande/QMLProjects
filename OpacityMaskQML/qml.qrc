@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>11.png</file>
+        <file>AdjustableBar.qml</file>
+        <file>AnnotationBar.qml</file>
+        <file>Bracket.qml</file>
+        <file>BracketPair.qml</file>
+        <file>ScaleBar.qml</file>
+    </qresource>
+</RCC>
