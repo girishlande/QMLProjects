@@ -4,5 +4,6 @@
         <file>DropDown.qml</file>
         <file>CustomMenuItem.qml</file>
         <file>DropdownBackground.qml</file>
+        <file>DropDownModels.qml</file>
     </qresource>
 </RCC>

@@ -4,15 +4,9 @@ UserListModel::UserListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 
-    m_names.append("Girish");
-    m_names.append("Ajit");
-    m_names.append("Suhas");
-    m_cols.append("red");
-    m_cols.append("green");
-    m_cols.append("blue");
-    m_names.append("Girish");
-    m_names.append("Ajit");
-    m_names.append("Suhas");
+    m_names.append("Girish Lande");
+    m_names.append("Ajit Lande");
+    m_names.append("Suhas Walase");
     m_cols.append("red");
     m_cols.append("green");
     m_cols.append("blue");
