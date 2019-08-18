@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MyCell.qml</file>
+        <file>MyHeader.qml</file>
+        <file>reformat_presets.ini</file>
+        <file>TableData.qml</file>
+        <file>TableRow.qml</file>
+    </qresource>
+</RCC>
