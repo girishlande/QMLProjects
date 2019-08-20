@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>BackRectangle.qml</file>
+        <file>DropDown.qml</file>
+        <file>DropDown1.qml</file>
+        <file>TopperDialog.qml</file>
+    </qresource>
+</RCC>
