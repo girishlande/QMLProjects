@@ -27,10 +27,21 @@ Rectangle {
         }
     }
 
+    MessagePopup {
+        id:msgPopup
+        y:300
+    }
+
     TopperDialog {
         id: assignDialog
         x: parent.width/2 - width/2
         y:parent.height/2 - height/2
+
+        onSelectionMade: {
+            msgPopup.text="Topper is selected:"
+            msgPopup.open();
+            console.log("Dialog closed")
+        }
     }
 
 

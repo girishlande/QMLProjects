@@ -10,6 +10,7 @@ Rectangle {
 
     property alias placeHolder: placeHolderText.text
     property alias model: listViewId.model
+    signal itemSelected;
 
     TextEdit {
         id: textEdit
@@ -46,6 +47,7 @@ Rectangle {
                     boundsBehavior: ListView.StopAtBounds
                     delegate: MenuItem {
                         text: model.name
+                        font.pixelSize: 14
                         onClicked: {
                             textEdit.text = text;
                             contextMenu.close()

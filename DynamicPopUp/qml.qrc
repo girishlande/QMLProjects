@@ -5,5 +5,6 @@
         <file>DropDown.qml</file>
         <file>DropDown1.qml</file>
         <file>TopperDialog.qml</file>
+        <file>MessagePopup.qml</file>
     </qresource>
 </RCC>

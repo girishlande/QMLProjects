@@ -9,9 +9,22 @@ Window {
     title: qsTr("Hello World")
 
 
-    BackRectangle {
+        BackRectangle {
 
-    }
+        }
+
+//        Button {
+//            id:button1
+//            text: "Show Popup"
+//            onClicked: {
+//                msgPopup.open()
+//            }
+//        }
+
+//        MessagePopup {
+//            id:msgPopup
+//            y:button1.height
+//        }
 
 
 }

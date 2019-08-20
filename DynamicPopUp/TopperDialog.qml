@@ -8,6 +8,10 @@ Dialog {
     modal: true
     width: 400
     height: 400
+
+    property string topperName: ""
+    signal selectionMade();
+
     ListModel {
         id:userListModel
         ListElement{name:'Girish Lande'}
@@ -39,6 +43,10 @@ Dialog {
                 width: 300
                 placeHolder: "Select Topper student"
                 model: userListModel
+                onItemSelected: {
+                    topperName = text;
+                    console.log("Topper name:"+topperName)
+                }
             }
         }
 
@@ -51,6 +59,7 @@ Dialog {
                 text: "Select"
                 onClicked: {
                     root.close();
+                    root.selectionMade();
                 }
             }
             Button {
