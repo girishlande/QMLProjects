@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Dot.qml</file>
+        <file>GMenuItem.qml</file>
+    </qresource>
+</RCC>
