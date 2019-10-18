@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/exit.png</file>
+        <file>images/import.jpg</file>
+        <file>images/import.png</file>
+        <file>images/Open.png</file>
+        <file>stylesheets/style1.qss</file>
+        <file>stylesheets/style2.qss</file>
+    </qresource>
+</RCC>
