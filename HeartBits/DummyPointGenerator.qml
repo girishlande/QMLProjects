@@ -12,7 +12,23 @@ Item {
     Button {
         text: "click"
         onClicked: {
-            getPoints();
+            //getPoints();
+            getSineWavePoints(400,200);
         }
+    }
+
+    function getSineWavePoints(width,height) {
+        var pts = [];
+        var x = 0;
+        var y = 0;
+        var amplitude = 100;
+        var frequency = 10;
+        while (x < width) {
+            y = height/2 + amplitude * Math.sin(x/frequency);
+            x = x + 1;
+            y = Math.floor(y);
+            pts.push(y);
+        }
+        console.log(pts);
     }
 }
