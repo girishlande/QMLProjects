@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>WaveRectangle.qml</file>
+        <file>DummyPointGenerator.qml</file>
+        <file>InspectionPopup.qml</file>
+        <file>WaveHighlighter.qml</file>
+    </qresource>
+</RCC>
