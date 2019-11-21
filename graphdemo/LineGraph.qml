@@ -26,6 +26,89 @@ Graphbackground{
         return {'x':xt, 'y':yt};
     }
 
+    function clearContext(ctx) {
+        ctx.strokeStyle = "white"
+        ctx.fillRect(0,0,drawingCanvas.width,drawingCanvas.height);
+        ctx.lineWidth = 2;
+    }
+
+    function addAnnotationTexts(ctx) {
+        //ctx.font = "20px normal sans-serif";
+        ctx.beginPath();
+        ctx.font = "oblique 17px sans-serif";
+        ctx.strokeStyle = "white"
+        if(root.annotationPoints.length>0) {
+            for(var j=0;j<annotationPoints.length;j+=2) {
+                var from = annotationPoints[j];
+                var to = annotationPoints[j+1];
+                var dist = Math.floor(Math.hypot(from.x-to.x, from.y-to.y));
+                var midPoint = pntOnLine(from,to);
+                ctx.strokeText(dist,midPoint.x,midPoint.y);
+                ctx.stroke();
+            }
+        }
+    }
+
+    function drawLines(ctx) {
+        var yoffset = drawingCanvas.height / 2;
+        var xinc = 200;
+        var pointIndex = 0;
+        for(var index=0;index<root.lineCount;index++) {
+            var xpos = 0;
+            ctx.beginPath();
+            ctx.strokeStyle = root.getStrokeStyle(index);
+            ctx.moveTo(0, 0);
+            while(xpos<drawingCanvas.width) {
+                xpos+=xinc;
+                ctx.lineTo(xpos,Math.floor(points[pointIndex++] * yoffset));
+            }
+            ctx.stroke();
+        }
+    }
+
+    function drawDraggingAnnotationText(ctx) {
+        if (root.dragging) {
+            ctx.beginPath();
+            ctx.strokeStyle = "white"
+            var from = root.inspectStart;
+            var to = root.inspectEnd;
+            var dist = Math.floor(Math.hypot(from.x-to.x, from.y-to.y));
+            var midPoint = pntOnLine(from,to);
+            ctx.strokeText(dist,midPoint.x,midPoint.y);
+            ctx.stroke();
+        }
+    }
+
+    function drawAnnotationLines(ctx) {
+        var cached = ctx.getLineDash();
+        var space = 4;
+        ctx.beginPath();
+        ctx.setLineDash([3, space, 3, space]);
+        ctx.strokeStyle = "gray"
+
+        if(root.annotationPoints.length>0) {
+            for(var j=0;j<annotationPoints.length;j+=2) {
+                var from = annotationPoints[j];
+                var to = annotationPoints[j+1];
+
+                ctx.moveTo(from.x, from.y);
+                ctx.lineTo(to.x, to.y);
+
+            }
+        }
+        ctx.stroke();
+        ctx.setLineDash(cached);
+    }
+
+    function drawDraggingAnnotationLine(ctx) {
+        if(root.dragging) {
+            ctx.beginPath();
+            ctx.moveTo(root.inspectStart.x, root.inspectStart.y);
+            ctx.lineTo(root.inspectEnd.x, root.inspectEnd.y);
+            ctx.stroke();
+        }
+    }
+
     Canvas
     {
         id: drawingCanvas
@@ -34,77 +117,16 @@ Graphbackground{
         onPaint:
         {
             var ctx = getContext("2d")
-            ctx.strokeStyle = "white"
 
-            ctx.fillRect(0,0,drawingCanvas.width,drawingCanvas.height);
-            ctx.lineWidth = 2;
-            var space = 4;
+            clearContext(ctx);
+            addAnnotationTexts(ctx);
+            drawLines(ctx);
 
+            drawDraggingAnnotationText(ctx);
 
+            drawAnnotationLines(ctx);
 
-            var yoffset = drawingCanvas.height / 2;
-            var xinc = 200;
-            var pointIndex = 0;
-            for(var index=0;index<root.lineCount;index++) {
-                var xpos = 0;
-                ctx.strokeStyle = root.getStrokeStyle(index);
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                while(xpos<drawingCanvas.width) {
-                    xpos+=xinc;
-                    ctx.lineTo(xpos,Math.floor(points[pointIndex++] * yoffset));
-                }
-                ctx.stroke();
-            }
-
-            //ctx.font = "20px normal sans-serif";
-            ctx.beginPath();
-            ctx.font = "oblique 17px sans-serif";
-            ctx.strokeStyle = "white"
-            if(root.annotationPoints.length>0) {
-                for(var j=0;j<annotationPoints.length;j+=2) {
-                    var from = annotationPoints[j];
-                    var to = annotationPoints[j+1];
-                    var dist = Math.floor(Math.hypot(from.x-to.x, from.y-to.y));
-                    var midPoint = pntOnLine(from,to);
-                    ctx.strokeText(dist,midPoint.x,midPoint.y);
-                    ctx.stroke();
-                }
-            }
-            if (root.dragging) {
-                from = root.inspectStart;
-                to = root.inspectEnd;
-                dist = Math.floor(Math.hypot(from.x-to.x, from.y-to.y));
-                midPoint = pntOnLine(from,to);
-                ctx.strokeText(dist,midPoint.x,midPoint.y);
-                ctx.stroke();
-            }
-
-            var cached = ctx.getLineDash();
-            ctx.setLineDash([3, space, 3, space]);
-            ctx.strokeStyle = "gray"
-
-            if(root.annotationPoints.length>0) {
-                for(j=0;j<annotationPoints.length;j+=2) {
-                    from = annotationPoints[j];
-                    to = annotationPoints[j+1];
-                    ctx.beginPath();
-                    ctx.moveTo(from.x, from.y);
-                    ctx.lineTo(to.x, to.y);
-                    ctx.stroke();
-                }
-                ctx.setLineDash(cached);
-            }
-
-            if(root.dragging) {
-                ctx.beginPath();
-                ctx.moveTo(root.inspectStart.x, root.inspectStart.y);
-                ctx.lineTo(root.inspectEnd.x, root.inspectEnd.y);
-                ctx.stroke();
-            }
-            ctx.setLineDash(cached);
-
-
+            drawDraggingAnnotationLine(ctx);
         }
 
         MouseArea {
