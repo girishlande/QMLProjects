@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Graphbackground.qml</file>
+        <file>DummyPointGenerator.qml</file>
+        <file>LineGraph.qml</file>
+    </qresource>
+</RCC>
