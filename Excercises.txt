@@ -1,4 +1,5 @@
 1. demo to show use of tr function. It should involve use of some commonly used word like "thank you" and can be shown
 in german, japanese by writing simple program. It can also involve use of qt linquistics as additional thing.
+read Qt Linguist Manual from qt documentation and prepare notes before delivering this tutorial.
 
 2. 
