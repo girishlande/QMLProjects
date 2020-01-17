@@ -10,7 +10,7 @@ Dialog {
     height: 400
 
     property string topperName: ""
-    signal selectionMade();
+    signal selectionMade(string name);
 
     ListModel {
         id:userListModel
@@ -44,7 +44,7 @@ Dialog {
                 placeHolder: "Select Topper student"
                 model: userListModel
                 onItemSelected: {
-                    topperName = text;
+                    root.topperName = name;
                     console.log("Topper name:"+topperName)
                 }
             }
@@ -58,8 +58,8 @@ Dialog {
             Button {
                 text: "Select"
                 onClicked: {
+                    root.selectionMade(root.topperName);
                     root.close();
-                    root.selectionMade();
                 }
             }
             Button {

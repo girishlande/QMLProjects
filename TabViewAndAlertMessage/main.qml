@@ -18,7 +18,7 @@ Window {
             }
         }
         Tab {
-            title: "Add Student"
+            title: "Create Student"
 
             AddStudent {
                 anchors.fill: parent

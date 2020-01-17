@@ -13,10 +13,10 @@ Window {
     ListModel {
         id:nameModel
         ListElement{
-            name:'Girish'
+            name:'Girish Lande'
         }
         ListElement{
-            name:'Ajit'
+            name:'Ajit Lande'
         }
     }
 
@@ -35,9 +35,11 @@ Window {
                 focus: true
                 onAcceptableInputChanged: {
                     nameModel.append({"name":nameText.text});
+                    nameText.text="";
                 }
                 onAccepted: {
                     nameModel.append({"name":nameText.text});
+                    nameText.text="";
                 }
             }
         }
@@ -45,7 +47,7 @@ Window {
             text: "Add"
             onClicked: {
                 if(nameText.text!=="")
-                nameModel.append({"name":nameText.text});
+                    nameModel.append({"name":nameText.text});
             }
         }
 
@@ -63,9 +65,16 @@ Window {
                     color: "black"
                 }
 
-                Text {
-                    text: name
-                    font.pointSize: 20
+                Rectangle {
+                    width: 300
+                    height: 40
+                    color: index%2==0?"orange":"green"
+                    Text {
+                        text: name
+                        font.pointSize: 20
+                        anchors.left: parent.left
+                        anchors.leftMargin: 10
+                    }
                 }
             }
         }

@@ -24,7 +24,10 @@ int Student::roll()
 
 void Student::setRoll(int roll)
 {
-    m_roll = roll;
+    if (m_roll!=roll) {
+        m_roll = roll;
+        emit rollChanged();
+    }
 }
 
 QString Student::name()
@@ -34,5 +37,8 @@ QString Student::name()
 
 void Student::setName(QString name)
 {
-    m_name = name;
+    if (m_name!=name) {
+        m_name = name;
+        emit nameChanged();
+    }
 }

@@ -16,10 +16,10 @@ Rectangle {
             y: fileButton.height
 
             MenuItem {
-                text: "Export"
+                text: "do nothing"
             }
             MenuItem {
-                text: "Assign"
+                text: "select topper"
                 onClicked: {
                     assignDialog.open()
                 }
@@ -35,12 +35,12 @@ Rectangle {
     TopperDialog {
         id: assignDialog
         x: parent.width/2 - width/2
-        y:parent.height/2 - height/2
+        y: parent.height/2 - height/2
 
         onSelectionMade: {
-            msgPopup.text="Topper is selected:"
+            console.log("topper selected:"+name);
+            msgPopup.text="Topper is selected:"+name
             msgPopup.open();
-            console.log("Dialog closed")
         }
     }
 

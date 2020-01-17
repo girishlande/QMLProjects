@@ -1,3 +1,5 @@
+TextMetrics :  Get size of text in pixels for given font and size
+=============
 this project will show use of TextMetrics which returns us width of text (in pixels) for given font family and size.
 this is useful because you can runtime decide size of element based on the text width. Sometime because of translation of label text for controls such as buttons, column names you can overlap controls on each other. To avoid this we can give width to controls using textmetrics and this will avoid controls getting overlapped on each other. 
 

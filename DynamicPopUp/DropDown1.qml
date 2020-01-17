@@ -10,7 +10,7 @@ Rectangle {
 
     property alias placeHolder: placeHolderText.text
     property alias model: listViewId.model
-    signal itemSelected;
+    signal itemSelected(var name);
 
     TextEdit {
         id: textEdit
@@ -50,6 +50,7 @@ Rectangle {
                         font.pixelSize: 14
                         onClicked: {
                             textEdit.text = text;
+                            root.itemSelected(text);
                             contextMenu.close()
                         }
                         hoverEnabled: true

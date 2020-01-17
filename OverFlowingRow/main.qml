@@ -259,20 +259,14 @@ Window {
                             id: mergeMenuItem
                             text: qsTr("Merge")
                             height: visible? implicitHeight : 0
+                            visible: hideMerge
                         }
-
-                        MenuItem {
-                            id: unmergeMenuItem
-                            text: qsTr("Unmerge")
-                            visible: !mergeMenuItem.visible
-                            height: visible? implicitHeight : 0
-                        }
-
 
                         MenuItem {
                             id: deleteMenuItem
                             text: qsTr("Delete")
                             height: visible? implicitHeight : 0
+                            visible: hideDelete
                         }
                     }
                 }

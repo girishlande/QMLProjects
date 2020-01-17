@@ -1,0 +1,1 @@
+Simple application to show array elements in view model
