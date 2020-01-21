@@ -16,15 +16,6 @@ Button {
     property alias isMenuVisible: buttonMenu.visible
 
 
-    function recomputeMenuPosition() {
-        if (root.mapToGlobal(0, 0).y + buttonMenu.height > root.Window.height) {
-            buttonMenu.y = -buttonMenu.height;
-        }
-        else {
-            buttonMenu.y = root.height;
-        }
-    }
-
     text: qsTr("Select your friend")
     font.bold: false
     font.letterSpacing: scaled(1.4)
@@ -40,20 +31,13 @@ Button {
         else {
             buttonMenu.open();
         }
-
-        recomputeMenuPosition();
     }
-
-    Component.onCompleted: root.recomputeMenuPosition()
 
     Menu {
         id: buttonMenu
         y: root.height
         closePolicy: Popup.CloseOnPressOutsideParent
         clip: true
-
-
-        onHeightChanged: root.recomputeMenuPosition()
 
         background: Rectangle {
             width: buttonMenu.width

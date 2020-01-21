@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>FriendsTextArea.qml</file>
+        <file>FriendsMenu.qml</file>
+        <file>Grippers.qml</file>
+        <file>icons/gripper.svg</file>
+    </qresource>
+</RCC>
