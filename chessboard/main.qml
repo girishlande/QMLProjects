@@ -4,8 +4,8 @@ import QtQuick.Window 2.12
 Window {
     id:root
     visible: true
-    width: 640
-    height: 640
+    width: 880
+    height: 880
     title: qsTr("Chessboard")
 
     function isDark(index) {
@@ -14,9 +14,46 @@ Window {
         return ans;
     }
 
+    Column {
+        anchors.top: parent.top
+        anchors.topMargin: 40
+        Repeater {
+            model: 8
+            Rectangle {
+                width: 40
+                height: board.height/8
+                Text {
+                    anchors.centerIn: parent
+                    id: name
+                    text: 8 - index
+                    font.pointSize: 30
+                }
+            }
+        }
+    }
+
+    Row {
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 40
+        Repeater {
+            model: 8
+            Rectangle {
+                width: board.width/8
+                height: 40
+                Text {
+                    anchors.centerIn: parent
+                    text: String.fromCharCode(65+index);
+                    font.pointSize: 30
+                }
+            }
+        }
+    }
+
     Grid {
         id: board
         anchors.fill: parent
+        anchors.margins: 40
         rows: 8
         columns: 8
 
@@ -36,7 +73,11 @@ Window {
                 MouseArea {
                     anchors.fill: parent
                     onClicked:  {
-                        console.log("Clicked:"+name.text)
+                        console.log("Clicked:"+name.text + " index:"+index)
+                        let row = Math.floor(index / 8);
+                        let col = (index - row*8)%8;
+                        name.text = (8-row)+String.fromCharCode(65+col);
+                        name.font.pointSize = 30;
                     }
                 }
             }
