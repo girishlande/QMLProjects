@@ -50,6 +50,34 @@ Window {
         }
     }
 
+    function getPiece(col,white) {
+        var colorchar = white ? "w" : "b";
+        col = col+1;
+        if(col===1 || col===8 )
+            return "qrc:/icons/" + colorchar + "rook.svg";
+        if(col===2 || col===7)
+            return "qrc:/icons/" + colorchar + "knight.svg";
+        if(col===3 || col===6)
+            return "qrc:/icons/" + colorchar + "bishop.svg";
+        if(col===4)
+            return "qrc:/icons/" + colorchar + "queen.svg";
+        if(col===5)
+            return "qrc:/icons/" + colorchar + "king.svg";
+    }
+
+    function getPieceImage(index) {
+        let row = Math.floor(index / 8);
+        let col = (index - row*8)%8;
+        if (row===1)
+            return "qrc:/icons/bpawn.svg";
+        if(row===6)
+            return "qrc:/icons/wpawn.svg";
+        if (row===0)
+            return getPiece(col,false);
+         if (row===7)
+            return getPiece(col,true);
+    }
+
     Grid {
         id: board
         anchors.fill: parent
@@ -62,22 +90,25 @@ Window {
             Rectangle {
                 width: board.width/8
                 height: board.height/8
-                color: isDark(index)?"orange":"green"
+                color: isDark(index)?"lightblue":"white"
 
                 Text {
                     id: name
-                    text: index+1
                     anchors.centerIn: parent
+                }
+                Image {
+                    source: getPieceImage(index);
+                    anchors.fill: parent
+                    anchors.margins: 5
                 }
 
                 MouseArea {
                     anchors.fill: parent
                     onClicked:  {
                         console.log("Clicked:"+name.text + " index:"+index)
-                        let row = Math.floor(index / 8);
-                        let col = (index - row*8)%8;
-                        name.text = (8-row)+String.fromCharCode(65+col);
-                        name.font.pointSize = 30;
+
+                        //name.text = (8-row)+String.fromCharCode(65+col);
+                        //name.font.pointSize = 30;
                     }
                 }
             }

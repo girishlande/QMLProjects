@@ -1,5 +1,30 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>icons/bbishop.png</file>
+        <file>icons/bking.png</file>
+        <file>icons/bknight.png</file>
+        <file>icons/bpawn.png</file>
+        <file>icons/bqueen.png</file>
+        <file>icons/brook.png</file>
+        <file>icons/wbishop.png</file>
+        <file>icons/wking.png</file>
+        <file>icons/wknight.png</file>
+        <file>icons/wpawn.png</file>
+        <file>icons/wqueen.png</file>
+        <file>icons/wrook.png</file>
+        <file>icons/26774.svg</file>
+        <file>icons/bbishop.svg</file>
+        <file>icons/bking.svg</file>
+        <file>icons/bknight.svg</file>
+        <file>icons/bpawn.svg</file>
+        <file>icons/bqueen.svg</file>
+        <file>icons/brook.svg</file>
+        <file>icons/wbishop.svg</file>
+        <file>icons/wking.svg</file>
+        <file>icons/wknight.svg</file>
+        <file>icons/wpawn.svg</file>
+        <file>icons/wqueen.svg</file>
+        <file>icons/wrook.svg</file>
     </qresource>
 </RCC>
