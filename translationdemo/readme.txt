@@ -1,3 +1,5 @@
+// Demo of How translation works in QT/QML
+======================================
 // Please follow these steps to create simple application which can run your application in any language by translating the required 
 // text / phrases on the UI 
 
