@@ -1,6 +1,16 @@
 This project explains C++ models in QML and how to use them.
 How to display and modify C++ models in QML.
+===============================================================
+View: contains frame, listview inside frame, button row.
+button for adding new item.
+button for deleting completed items.
+-------------------------------------------
 
+Steps in which this project should be done 
+1. Create view, listmodel and listview. implement complete logic in QML
+2. Create listmodel in C++ and manipulate from QML
+
+-------------------------------------------
 Create new empty QML project todo-list
 Create ToDoList.qml. create Frame object.
 Create ListView as a child. 

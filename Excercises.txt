@@ -8,5 +8,7 @@ when clicking on particular square it should show its unique ID in form of cross
 3. Create paint like software with options to draw, clear, save file. Add some brush types, color etc. 
 
 4. Create todo list using c++ QML integration.
+   Create todo list using QML only.
 
+5. Create Plugin library for QML components. Use these components in another subproject. 
 

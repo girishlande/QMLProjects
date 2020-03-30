@@ -30,7 +30,7 @@ SUBDIRS += \
 	Choose Application -> Qt Quick application (Empty)
 Name this as "StudentTest"
 
-7. Go to plugin project. Open .pro file and add destination where dll should get added. 
+7. Go to plugin project. Open student.pro file and add destination where dll should get added. 
 DESTDIR = ../student
 
 Now if you build your plugin project, plugin dll will get generated in outermost folder. 
@@ -46,6 +46,12 @@ Btw , you don't need to build plugin project everytime, QtCreator will build plu
 Ofcourse if it finds changes 
 
 11. Now open your application project and update main.cpp with following code. 
+Basically what we do here is , by default our application dir will hold exe dir.
+for example. 
+D:/test/build-pluginDemo-Desktop_Qt_5_13_0_MinGW_64_bit-Debug/StudenTest/debug
+We go cd.. cd.. means we go to parent folder. where there is plugin folder student.
+and since we have asked plugin project to output library in plugin folder, our QML code 
+can find this dll and will be able to access these components happily. 
 
     QGuiApplication app(argc, argv);
     QString path = app.applicationDirPath().append("/../..");
