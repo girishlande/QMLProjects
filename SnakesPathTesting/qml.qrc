@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Board.qml</file>
+        <file>images/board.jpg</file>
+        <file>files/s8.txt</file>
+        <file>files/s18.txt</file>
+        <file>files/s26.txt</file>
+        <file>files/s39.txt</file>
+        <file>files/s51.txt</file>
+        <file>files/s54.txt</file>
+        <file>files/s56.txt</file>
+        <file>files/s60.txt</file>
+        <file>files/s75.txt</file>
+        <file>files/s83.txt</file>
+        <file>files/s85.txt</file>
+        <file>files/s90.txt</file>
+        <file>files/s92.txt</file>
+        <file>files/s97.txt</file>
+        <file>files/s99.txt</file>
+    </qresource>
+</RCC>
