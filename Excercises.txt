@@ -12,3 +12,4 @@ when clicking on particular square it should show its unique ID in form of cross
 
 5. Create Plugin library for QML components. Use these components in another subproject. 
 
+6. Create Bus and move it from left to right on button click. 
