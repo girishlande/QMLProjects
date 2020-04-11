@@ -1,0 +1,75 @@
+About QML 
+--------------
+QML (Qt Modeling Language[4]) is a user interface markup language. 
+It is a declarative language (similar to CSS and JSON) for designing user interface–centric applications.
+Inline JavaScript code handles imperative aspects. It is associated with Qt Quick,
+the UI creation kit originally developed by Nokia within the Qt framework. 
+Qt Quick is used for mobile applications where touch input, fluid animations and user experience are crucial. 
+QML is declarative markup language, similar to HTML.
+It is composed of tags called types in Qt Quick 
+that are enclosed in curly brackets Item {}
+
+It was designed for creation of user interfaces.
+
+In Typical project front end is developed in QML/Javascript
+and backend code which does heavy operation is developed using
+Qt C++. 
+
+It supports all major platforms and hence preferred for 
+designing UI for cross platform applications 
+
+Features
+===========
+Basic Elements (Item Rectangle Image Text TextInput TextEdit FocusScope Component MouseArea)
+
+Data Types ( int color bool date font list variant rect )
+Property Binding (Binding allows a property's value to be expressed as an JavaScript expression)
+Component Layouts (Row Column Grid) 
+Layouts using Anchors (Anchors Top,Bottom, Left, Right, HorizontalCenter, VerticalCenter)
+Mouse Events
+Text Handling 
+Keyboard Focus
+Signal and Handler Event System
+Importing Reusable Components
+
+QT Building blocks
+===================
+Qt modules
+Qt Quick controls, Qt Quick layouts, Qt Quick dialogs
+
+QML describes the user interface as a tree of hierarchical elements
+
+ QML is a hierarchy of elements. Child elements inherit the
+ coordinate system from the parent. An x,y coordinate is 
+always relative to the parent.
+
+The import statement imports a module in a specific version.
+Comments can be made using // for single line comments or /* */ for multi-line comments. Just like in C/C++ and JavaScript
+Every QML file needs to have exactly one root element, like HTML
+An element is declared by its type followed by { }
+Elements can have properties, they are in the form `` name: value``
+Arbitrary elements inside a QML document can be accessed by using their id (an unquoted identifier)
+Elements can be nested, meaning a parent element can have child elements. The parent element can be accessed using the parent keyword
+
+Properties
+=============
+A property is a simple key-value pair, e.g. width : 100, text: 'Greetings', color: '#FF0000
+id is a very special property-like value, it is used to reference elements inside a QML file
+A property can be set to a value, depending on its type
+A property can depend on one or many other properties. This is called binding. 
+Another important way of declaring properties is using the alias keyword 
+Some properties are grouped properties. font { family: "Ubuntu"; pixelSize: 24 }.
+
+Basic Elements
+===============
+Item is base element for all visual elements. It defies
+properties which are common across all visual elements
+such as x,y,width,height,anchors, Key, scale, rotate, opacity 
+
+Rectangle extends Item and adds fll color to it. 
+Additionally supports borders . For Rounded rectangle 
+can use radius property 
+
+
+
+
