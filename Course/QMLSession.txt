@@ -1,22 +1,19 @@
 About QML 
 --------------
-QML (Qt Modeling Language[4]) is a user interface markup language. 
+QML (Qt Modeling Language) is a declarative markup language. 
 It is a declarative language (similar to CSS and JSON) for designing user interface–centric applications.
 Inline JavaScript code handles imperative aspects. It is associated with Qt Quick,
-the UI creation kit originally developed by Nokia within the Qt framework. 
-Qt Quick is used for mobile applications where touch input, fluid animations and user experience are crucial. 
-QML is declarative markup language, similar to HTML.
-It is composed of tags called types in Qt Quick 
+QML is used for mobile applications where touch input, fluid animations and user experience are crucial. 
+It is similar to HTML in the sense It is composed of tags called types in Qt Quick 
 that are enclosed in curly brackets Item {}
 
-It was designed for creation of user interfaces.
-
+It was designed for creation of user interfaces for C++ applications.
 In Typical project front end is developed in QML/Javascript
 and backend code which does heavy operation is developed using
 Qt C++. 
 
 It supports all major platforms and hence preferred for 
-designing UI for cross platform applications 
+designing UI for cross platform applications.
 
 Features
 ===========
@@ -69,6 +66,12 @@ such as x,y,width,height,anchors, Key, scale, rotate, opacity
 Rectangle extends Item and adds fll color to it. 
 Additionally supports borders . For Rounded rectangle 
 can use radius property 
+
+Model View Controller
+=======================
+Model will hold data
+View will display data
+Controller will be communicator between these 2 
 
 
 
