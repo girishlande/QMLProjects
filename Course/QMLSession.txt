@@ -1,6 +1,6 @@
 About QML 
 --------------
-QML (Qt Modeling Language) is a declarative markup language. 
+QML (Qt Modeling Language) is a markup language. 
 It is a declarative language (similar to CSS and JSON) for designing user interface–centric applications.
 Inline JavaScript code handles imperative aspects. It is associated with Qt Quick,
 QML is used for mobile applications where touch input, fluid animations and user experience are crucial. 
