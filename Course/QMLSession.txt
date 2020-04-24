@@ -19,14 +19,14 @@ Features
 ===========
 Basic Elements (Item Rectangle Image Text TextInput TextEdit FocusScope Component MouseArea)
 
-Data Types ( int color bool date font list variant rect )
-Property Binding (Binding allows a property's value to be expressed as an JavaScript expression)
-Component Layouts (Row Column Grid) 
-Layouts using Anchors (Anchors Top,Bottom, Left, Right, HorizontalCenter, VerticalCenter)
-Mouse Events
-Text Handling 
-Keyboard Focus
-Signal and Handler Event System
+	Data Types ( int color bool date font list variant rect )
+	Property Binding (Binding allows a property's value to be expressed as an JavaScript expression)
+	Component Layouts (Row Column Grid) 
+	Layouts using Anchors (Anchors Top,Bottom, Left, Right, HorizontalCenter, VerticalCenter)
+	Mouse Events
+	Text Handling 
+	Keyboard Focus
+	Signal and Handler Event System
 Importing Reusable Components
 
 QT Building blocks
@@ -46,7 +46,18 @@ Every QML file needs to have exactly one root element, like HTML
 An element is declared by its type followed by { }
 Elements can have properties, they are in the form `` name: value``
 Arbitrary elements inside a QML document can be accessed by using their id (an unquoted identifier)
-Elements can be nested, meaning a parent element can have child elements. The parent element can be accessed using the parent keyword
+Elements can be nested, meaning a parent element can have child elements. 
+The parent element can be accessed using the parent keyword
+
+Component
+==============
+A component provides a way of defining a new type that we can re-use in other QML files.
+ A QML component is like a black-box and interacts with the outside world through properties, 
+ signals and functions and is generally defined in its own QML file. 
+ The component's filename must always start with a capital letter.
+
+e.g ColorPicker component
+
 
 Properties
 =============
@@ -56,6 +67,56 @@ A property can be set to a value, depending on its type
 A property can depend on one or many other properties. This is called binding. 
 Another important way of declaring properties is using the alias keyword 
 Some properties are grouped properties. font { family: "Ubuntu"; pixelSize: 24 }.
+
+Property bindings
+==================
+Property bindings are a core feature of QML that lets developers specify relationships 
+between different object properties. When a property's dependencies change in value, the
+ property is automatically updated according to the specified relationship.
+
+Behind the scenes, the QML engine monitors the property's dependencies (that is, 
+the variables in the binding expression). When a change is detected, the QML engine 
+re-evaluates the binding expression and applies the new result to the property.
+
+
+Item Positioners
+==================
+Positioner items are container items that manage the positions of items in a declarative user interface. 
+Positioners make it easier to work with many items when they need to be arranged in a regular layout. 
+Qt Quick Layouts can also be used to arrange Qt Quick items in a user interface. 
+They manage both the positions and the sizes of items on a declarative user interface and are well suited for 
+resizable user interfaces.
+
+
+Anchors
+=============
+In addition to the more traditional Grid, Row, and Column, Qt Quick also provides a way to layout items 
+using the concept of anchors. Each item can be thought of as having a set of 7 invisible "anchor lines": 
+left, horizontalCenter, right, top, verticalCenter, baseline, and bottom.
+
+Signals
+===========
+Signals provide a way to notify other objects when an event has occurred.
+ For example, the MouseArea clicked signal notifies other objects that the mouse has been clicked within the area
+
+The syntax for defining a new signal is:
+signal <name>[([<type> <parameter name>[, ...]])]
+
+Adding a signal to an item automatically adds a signal handler as well. 
+The signal hander is named on<SignalName>, with the first letter of the signal in uppercase. 
+The previous signals have the following signal handlers:
+
+Mouse Events
+==============
+QML uses signals and handlers to deliver mouse interactions. 
+Specifically, the MouseArea and MouseEvent elements provide QML components with signal handlers to
+ accept mouse events within a defined area.
+
+The MouseArea element receives events within a defined area.
+One quick way to define this area is to anchor the MouseArea to its parent's area using the anchors.fill property.
+
+
+
 
 Basic Elements
 ===============
