@@ -1,4 +1,4 @@
-Excercises 
+Exercises 
 =====================
 
 
@@ -19,14 +19,24 @@ Excercises
 	
 	
 4.  Create a text box and take user input. As user entered text should be shown in center of window
-    show output "Hello <username>"
+    show output "Hello <user-name>"
 	
 5.  Create an Image item. Download Mario image. Add image in center.
     Add a button. On click of the button rotate and scale image. 
-	Add mousearea to image and on click reverse operation of button 
+	Add mouse area to image and on click reverse operation of button 
 	
 6.  MVC Demo. Create a TodoList application. Create frame in center of window. 
-    Add ListView with row as delegate and add Checkbox and TextField in it. 
+    Add ListView with row as delegate and add Check-box and TextField in it. 
 	Add toDoModel with done and description. 
 	Add 2 buttons at top to Add new element and to remove done items. 
 	Manipulate ListModel to see the effect of changing view when model is updated. 
+	
+7. Show use of animation by creating bus and moving it from left to right
+
+8. Show use of Model view controller with QML and C++ models. 
+
+9. Use of Masking to create profile photo
+
+10. Use of canvas to create Graph demo and create notation lines 
+
+11. Create paint application using canvas 
