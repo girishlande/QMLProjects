@@ -10,23 +10,17 @@ Window {
     title: qsTr("Hello World")
 
 
-    Rectangle {
-        width: buttonWidthController.value
-        height: 300
-        color: "orange"
+    ButtonMenu {
+        id: buttonmenu
         anchors.centerIn: parent
+        width: buttonWidthController.value
+        visible: true
         clip: true
-        ButtonMenu {
-            id: cannedAnnotationMenu
 
-            width: parent.width
-            visible: true
-            clip: true
-            menuWidth: parent.width > 300 ? 300 : parent.width
+        menuWidth: width
 
-            onCannedAnnotationSelected: {
-                console.log("text selected:"+text)
-            }
+        onCannedAnnotationSelected: {
+            console.log("text selected:"+text)
         }
     }
 

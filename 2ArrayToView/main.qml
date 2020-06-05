@@ -8,11 +8,11 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    property var names: ["Girish","Ajit","Sachin"];
+    property var names: ["Girish","Ajit","Sachin","Suhas","Ramesh","Suresh"];
 
     ListModel {
         id:l1
-        ListElement {name:"GIrish Lande"}
+        ListElement {name:"Girish Lande"}
         ListElement {name:"Ajit Lande"}
         ListElement {name:"Suhas Lande"}
     }
@@ -30,14 +30,19 @@ Window {
 
     ListView {
         anchors.top: b1.bottom
+        spacing: 10
         width: 300
         height: 400
         model: names
-        delegate: Text {
-            width: 200
-            height: 100
-            text: model.modelData
-            font.pointSize: 20
+        delegate: Rectangle {
+            width: parent.width
+            height: 50
+            color: index%2==0?"green":"lightblue"
+            Text {
+                anchors.centerIn: parent
+                text: model.modelData
+                font.pointSize: 20
+            }
         }
     }
 

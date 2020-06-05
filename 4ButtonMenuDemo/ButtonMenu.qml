@@ -22,6 +22,9 @@ Button {
     font.pixelSize: scaled(20)
     flat: true
     clip: true
+    background: Rectangle {
+        color: "steelblue"
+    }
 
     onClicked: {
         if(buttonMenu.visible) {
@@ -53,23 +56,21 @@ Button {
             onObjectRemoved: buttonMenu.removeItem(index)
 
             model: ListModel {
-                ListElement { translatedText: qsTr("Girish Parshuram lande") }
-                ListElement { translatedText: qsTr("Suhas Sayaji Walase") }
-                ListElement { translatedText: qsTr("Ajit Parshuram Lande") }
-                ListElement { translatedText: qsTr("Kiran Pandurang Phatangade") }
-                ListElement { translatedText: qsTr("Sameer Dattatray Pawar") }
+                ListElement { translatedText: qsTr("sachin Tendulkar") }
+                ListElement { translatedText: qsTr("Rahul dravid") }
+                ListElement { translatedText: qsTr("Virat Kohli") }
+                ListElement { translatedText: qsTr("Virendra sehwagh") }
+                ListElement { translatedText: qsTr("anil kumble") }
             }
             delegate: MenuItem {
                 id: buttonMenuItem
 
-                leftPadding: 0
-                rightPadding: 0
+                leftPadding: 30
                 implicitHeight: contentItem.implicitHeight + scaledInt(7)
                 width: buttonMenu.width
                 text: translatedText
-                font.pointSize: 20
+                font.pointSize: 16
                 clip: true
-
 
                 onTriggered: {
                     buttonMenu.close();

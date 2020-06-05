@@ -33,10 +33,6 @@ Window {
                 id:nameText
                 font.pixelSize: 20
                 focus: true
-                onAcceptableInputChanged: {
-                    nameModel.append({"name":nameText.text});
-                    nameText.text="";
-                }
                 onAccepted: {
                     nameModel.append({"name":nameText.text});
                     nameText.text="";

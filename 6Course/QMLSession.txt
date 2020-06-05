@@ -1,6 +1,10 @@
+// To stop flickering of screen when window is resized call this method from main.cpp
+QCoreApplication::setAttribute(Qt::AA_UseOpenGLES);
+
 About QML 
 --------------
 QML (Qt Modeling Language) is a markup language. 
+
 It is a declarative language (similar to CSS and JSON) for designing user interface–centric applications.
 Inline JavaScript code handles imperative aspects. It is associated with Qt Quick,
 QML is used for mobile applications where touch input, fluid animations and user experience are crucial. 
@@ -36,29 +40,44 @@ Qt Quick controls, Qt Quick layouts, Qt Quick dialogs
 
 QML describes the user interface as a tree of hierarchical elements
 
- QML is a hierarchy of elements. Child elements inherit the
- coordinate system from the parent. An x,y coordinate is 
+QML is a hierarchy of elements. Child elements inherit the
+coordinate system from the parent. An x,y coordinate is 
 always relative to the parent.
 
 The import statement imports a module in a specific version.
 Comments can be made using // for single line comments or /* */ for multi-line comments. Just like in C/C++ and JavaScript
 Every QML file needs to have exactly one root element, like HTML
 An element is declared by its type followed by { }
-Elements can have properties, they are in the form `` name: value``
-Arbitrary elements inside a QML document can be accessed by using their id (an unquoted identifier)
+Elements can have properties, they are in the form name: value
+Arbitrary elements inside a QML document can be accessed by using their id 
 Elements can be nested, meaning a parent element can have child elements. 
 The parent element can be accessed using the parent keyword
 
+
+Basic Elements
+===============
+Item is the base element for all visual elements as such all other visual elements inherits from Item.
+It doesn’t paint anything by itself but defines all properties which are common across all visual elements:
+
+PRACTICAL>> Create a rectangle of 100 X 100. Position at x=200, y=100. give some values to basic properties.
+            color. opacity, radius, border.color border.width, rotation, scale
+ 
+ 
 Component
 ==============
 A component provides a way of defining a new type that we can re-use in other QML files.
- A QML component is like a black-box and interacts with the outside world through properties, 
- signals and functions and is generally defined in its own QML file. 
- The component's filename must always start with a capital letter.
+A QML component is like a black-box and interacts with the outside world through properties, 
+signals and functions and is generally defined in its own QML file. 
+NOTE: The component's filename must always start with a capital letter.
 
 e.g ColorPicker component
 
+PRACTICAL>> Create a component SmallRectangle and BigRectangle
+		SmallRectangle should be 100 X 100 with color "red"
+		BigRectangle should be 200 X 200 with color "blue"
+		Integrate it in main qml file at different positions. 
 
+  
 Properties
 =============
 A property is a simple key-value pair, e.g. width : 100, text: 'Greetings', color: '#FF0000
@@ -72,27 +91,77 @@ Property bindings
 ==================
 Property bindings are a core feature of QML that lets developers specify relationships 
 between different object properties. When a property's dependencies change in value, the
- property is automatically updated according to the specified relationship.
-
+property is automatically updated according to the specified relationship.
 Behind the scenes, the QML engine monitors the property's dependencies (that is, 
 the variables in the binding expression). When a change is detected, the QML engine 
 re-evaluates the binding expression and applies the new result to the property.
 
+PRACTICAL>> Create 2 cocentric rectangles. Place them in center. Add a button to update size of parent
+			rectangle. Inner rectangle should derive its size using parent size. So when button is clicked
+			both will shrink together. 
 
-Item Positioners
+Item Positioner
 ==================
 Positioner items are container items that manage the positions of items in a declarative user interface. 
 Positioners make it easier to work with many items when they need to be arranged in a regular layout. 
 Qt Quick Layouts can also be used to arrange Qt Quick items in a user interface. 
 They manage both the positions and the sizes of items on a declarative user interface and are well suited for 
-resizable user interfaces.
+re sizable user interfaces.
 
+Row, Column, Grid
+-----------------
+PRACTICAL>>create 3 rectangles of color red,blue and green and show them arranged in row. 
+			Give some radius to these rectangles so they look nice. 
+			Give some width and height to row. say 100 X 100. 
+			Use Rectangles of the same size. and show them how clipping works. 
+			Arrange same rectangles in column and show how clipping works. 
+			Show how they can be positioned using x and y in window. 
+			Show how they can be anchored to window at some location. Say on right hand of window. 
+			and if you change your window width it still sticks to that right side. 
+
+PRACTICAL>Then Change column to Grid and show use of rows and columns attributes of the grid. 
+			Create grid of 5X3 and use 2 colors for rectangles. Use some radius(20%).
+			This will create a check board. 
+			Show use of model, use of index and delegate.
+			Add spacing of 10 to make them look better.  
+			Add Mouse Area. Change scale of rectangle to 1.1 on mouse hover. 
+			Change color of rectangle to "orange" when mouse hovers on it. 
+
+PRACTICAL>> Declare array 
+		property var names: ["blue","green","red","purple","pink","orange","yellow","maroon"];
+		Add Rectangle in Grid using Repeater and derived color from model.modelData
+
+PRACTICAL>Then Change Grid to Flow.
+		Set width of Flow element to parent.window/2
+		Now resize window to show how elements of the Flow gets adjusted. 
+
+There is Row , Column and Grid.
+Also there is RowLayout, COlumnLayout and GridLayout. 
+Whats the difference ? 
+Layouts control size and positioning of the items present inside. 
+THey are more useful when we want our controls to change their size based on the screen size
+In this case we should not explicitly specify size of the control. Instead we should use 
+Layout properties to control their sizes. 
+
+PRACTICAL> Create 3 rectangles in RowLayout and columnlayout. Make layouts anchors.fill so they have
+			width and height same as parent.
+			Show default output. Rectangles should be spread out in layout. 
+			Now show use of Layout.preferredWidth, Layout.minimumWidth, Layout.fillWidth. 
+			Layout.preferredWidth has precedence over width of item 
+			Layout.fillWidth has preferrence over Layout.preferredWidth
+			Layout.minimumWidth will be used to specify how much item can shrink. 
+			Layout.MaximumWidth will tell how much item can grow. 
 
 Anchors
 =============
 In addition to the more traditional Grid, Row, and Column, Qt Quick also provides a way to layout items 
 using the concept of anchors. Each item can be thought of as having a set of 7 invisible "anchor lines": 
 left, horizontalCenter, right, top, verticalCenter, baseline, and bottom.
+
+PRACTICAL > Create a rectangle. Align it to Windows all corners. Then show it in full screen by ancors.fill parent. 
+			Then Create small rectangle. Align it to the top right, bottom right, top left, bottom left etc. 
+			Then rotate this parent rectangle to show how other rectangles rotate. 
+
 
 Signals
 ===========
@@ -110,12 +179,10 @@ Mouse Events
 ==============
 QML uses signals and handlers to deliver mouse interactions. 
 Specifically, the MouseArea and MouseEvent elements provide QML components with signal handlers to
- accept mouse events within a defined area.
+accept mouse events within a defined area.
 
 The MouseArea element receives events within a defined area.
 One quick way to define this area is to anchor the MouseArea to its parent's area using the anchors.fill property.
-
-
 
 
 Basic Elements
@@ -135,5 +202,35 @@ View will display data
 Controller will be communicator between these 2 
 
 
+Animations and transitions
+===========================
 
+Show animation of moving bus.
+Show transition using Listview and adding content in listview. 
+
+Transitions
+--------------
+
+ ListView {
+         width: 240; height: 320
+         model: ListModel {}
+
+         delegate: Rectangle {
+             width: 100; height: 30
+             border.width: 1
+             color: "lightsteelblue"
+             Text {
+                 anchors.centerIn: parent
+                 text: name
+             }
+         }
+
+         add: Transition {
+             NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 400 }
+             NumberAnimation { property: "scale"; from: 0; to: 1.0; duration: 400 }
+         }
+
+         focus: true
+         Keys.onSpacePressed: model.insert(0, { "name": "Item " + model.count })
+     }
 

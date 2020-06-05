@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle {
     id:root
     property int wheelWidth: 50
-    property int numSpokes: 2
+    property int numSpokes: 3
 
     function startSpokesAnimation() {
         spokesAnimation.start();

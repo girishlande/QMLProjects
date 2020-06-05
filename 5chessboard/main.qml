@@ -76,6 +76,15 @@ Window {
             return getPiece(col,false);
          if (row===7)
             return getPiece(col,true);
+         return -1
+    }
+
+    function isValidPieceImage(index) {
+        let row = Math.floor(index / 8);
+        let col = (index - row*8)%8;
+        if (row===1 || row===6|| row===0|| row===7)
+            return true;
+         return false
     }
 
     Grid {
@@ -92,12 +101,9 @@ Window {
                 height: board.height/8
                 color: isDark(index)?"lightblue":"white"
 
-                Text {
-                    id: name
-                    anchors.centerIn: parent
-                }
                 Image {
-                    source: getPieceImage(index);
+                    visible: isValidPieceImage(index)
+                    source: visible ? getPieceImage(index) : ""
                     anchors.fill: parent
                     anchors.margins: 5
                 }
@@ -105,10 +111,10 @@ Window {
                 MouseArea {
                     anchors.fill: parent
                     onClicked:  {
-                        console.log("Clicked:"+name.text + " index:"+index)
+                        console.log("Clicked:"+cell.text + " index:"+index)
 
-                        //name.text = (8-row)+String.fromCharCode(65+col);
-                        //name.font.pointSize = 30;
+                        //cell.text = (8-row)+String.fromCharCode(65+col);
+                        //cell.font.pointSize = 30;
                     }
                 }
             }
