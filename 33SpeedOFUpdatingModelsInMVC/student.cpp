@@ -83,6 +83,9 @@ void Student::addStudent()
     int r = m_students.count()+1;
     m_students.append(Stud{r,QString("Student"+QString::number(r))});
     endResetModel();
+    //emit dataChanged(QModelIndex(), QModelIndex(), QVector<int>());
+    //emit dataChanged(index(0, 0), index(rowCount() - 1, 0));
+
     qDebug() << "addStudent():" << timer.elapsed();
 }
 
@@ -117,4 +120,19 @@ void Student::clearStudents()
     beginResetModel();
     m_students.clear();
     endResetModel();
+}
+
+void Student::updateStudent()
+{
+    QElapsedTimer timer;
+    timer.start();
+
+    int n = m_students.size();
+    int index1 = qrand() % n;
+    Stud s = m_students.at(index1);
+    s.name = s.name + "updated";
+    m_students[index1] = s;
+    emit dataChanged(index(0, 0), index(rowCount() - 1, 0));
+
+    qDebug() << "updateStudent():" << timer.elapsed();
 }

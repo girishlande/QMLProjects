@@ -67,5 +67,14 @@ Window {
             }
         }
 
+        Button {
+            width: 200
+            height: 50
+            text: "Update Students"
+            onClicked: {
+                stud.updateStudent();
+            }
+        }
+
     }
 }

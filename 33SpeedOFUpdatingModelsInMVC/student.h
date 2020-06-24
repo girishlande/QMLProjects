@@ -38,6 +38,7 @@ public:
     Q_INVOKABLE void addStudentsInOneGo();
     Q_INVOKABLE void addStudentsOneByOne();
     Q_INVOKABLE void clearStudents();
+    Q_INVOKABLE void updateStudent();
 
 private:
 
