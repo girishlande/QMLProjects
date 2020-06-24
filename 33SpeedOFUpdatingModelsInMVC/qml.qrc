@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Studui.qml</file>
+    </qresource>
+</RCC>
