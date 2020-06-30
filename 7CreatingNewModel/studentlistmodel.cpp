@@ -5,20 +5,6 @@ StudentListModel::StudentListModel(QObject *parent)
 {
 }
 
-QVariant StudentListModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    // FIXME: Implement me!
-}
-
-bool StudentListModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role)
-{
-    if (value != headerData(section, orientation, role)) {
-        // FIXME: Implement me!
-        emit headerDataChanged(orientation, section, section);
-        return true;
-    }
-    return false;
-}
 
 int StudentListModel::rowCount(const QModelIndex &parent) const
 {
@@ -80,20 +66,6 @@ void StudentListModel::AddStudent(Student *student)
 void StudentListModel::RemoveStudent(Student *student)
 {
     return;
-}
-
-bool StudentListModel::insertRows(int row, int count, const QModelIndex &parent)
-{
-    beginInsertRows(parent, row, row + count - 1);
-    // FIXME: Implement me!
-    endInsertRows();
-}
-
-bool StudentListModel::removeRows(int row, int count, const QModelIndex &parent)
-{
-    beginRemoveRows(parent, row, row + count - 1);
-    // FIXME: Implement me!
-    endRemoveRows();
 }
 
 int StudentListModel::count() const

@@ -8,11 +8,6 @@ InitGroupModel::InitGroupModel(QObject *parent)
 {
 }
 
-QVariant InitGroupModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    // FIXME: Implement me!
-}
-
 int InitGroupModel::rowCount(const QModelIndex &parent) const
 {
     // For list models only the root node (an invalid parent) should return the list's size. For all
@@ -30,6 +25,7 @@ bool InitGroupModel::insertRows(int row, int count, const QModelIndex &parent)
     beginInsertRows(parent, row, row + count - 1);
     // FIXME: Implement me!
     endInsertRows();
+    return true;
 }
 
 void InitGroupModel::AddGroup(InitGroup *group)

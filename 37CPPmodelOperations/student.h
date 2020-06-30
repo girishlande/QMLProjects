@@ -3,6 +3,7 @@
 
 #include <QAbstractListModel>
 #include <qvector.h>
+
 struct Stud {
     int roll;
     QString name;
@@ -14,10 +15,9 @@ class Student : public QAbstractListModel
 
 public:
     enum roles {
-        rollRole = Qt::UserRole + 1,
-        nameRole
+        RollRole = Qt::UserRole+1,
+        NameRole
     };
-
     explicit Student(QObject *parent = nullptr);
 
     // Basic functionality:
@@ -31,23 +31,18 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex& index) const override;
 
-    virtual QHash<int,QByteArray> roleNames() const;
-
+    // Add data:
     bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
-    Q_INVOKABLE void addStudent();
+    // Remove data:
+    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
-    Q_INVOKABLE void addStudentsInOneGo();
-    Q_INVOKABLE void addStudentsOneByOne();
-    Q_INVOKABLE void clearStudents();
-    Q_INVOKABLE void updateStudent();
+    virtual QHash<int,QByteArray> roleNames() const;
 
-    Q_INVOKABLE void insertStudent();
-    Q_INVOKABLE void insertMultipleStudents();
-    Q_INVOKABLE void insertMultipleStudentsOneByOne();
+    Q_INVOKABLE void addStudent(int index);
+    Q_INVOKABLE void removeStudent(int index);
 
 private:
-
     QVector<Stud> m_students;
 };
 

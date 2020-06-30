@@ -12,10 +12,6 @@ UserListModel::UserListModel(QObject *parent)
     m_cols.append("blue");
 }
 
-QVariant UserListModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    // FIXME: Implement me!
-}
 
 int UserListModel::rowCount(const QModelIndex &parent) const
 {

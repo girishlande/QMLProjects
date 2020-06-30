@@ -5,20 +5,13 @@
 Student::Student(QObject *parent)
     : QAbstractListModel(parent)
 {
-    //    m_students.append(Stud{11,"Girish"});
-    //    m_students.append(Stud{12,"Ajit"});
-    //    m_students.append(Stud{13,"Suhas"});
-    //    m_students.append(Stud{14,"Ramesh"});
 }
 
 int Student::rowCount(const QModelIndex &parent) const
 {
-    // For list models only the root node (an invalid parent) should return the list's size. For all
-    // other (valid) parents, rowCount() should return 0 so that it does not become a tree model.
     if (parent.isValid())
         return 0;
 
-    // FIXME: Implement me!
     return m_students.size();
 }
 
@@ -63,7 +56,7 @@ Qt::ItemFlags Student::flags(const QModelIndex &index) const
     if (!index.isValid())
         return Qt::NoItemFlags;
 
-    return Qt::ItemIsEditable; // FIXME: Implement me!
+    return Qt::ItemIsEditable;
 }
 
 QHash<int, QByteArray> Student::roleNames() const
@@ -72,6 +65,18 @@ QHash<int, QByteArray> Student::roleNames() const
     roles[nameRole] = "sname";
     roles[rollRole] = "sroll";
     return roles;
+}
+
+bool Student::insertRows(int row, int count, const QModelIndex &parent)
+{
+    beginInsertRows(parent, row, row + count - 1);
+
+    for(int i=0;i<count;i++) {
+        int r = m_students.size()+1;
+        m_students.insert(row+i,Stud{r,"IStudent"+QString::number(r)});
+    }
+    endInsertRows();
+    return true;
 }
 
 void Student::addStudent()
@@ -83,8 +88,6 @@ void Student::addStudent()
     int r = m_students.count()+1;
     m_students.append(Stud{r,QString("Student"+QString::number(r))});
     endResetModel();
-    //emit dataChanged(QModelIndex(), QModelIndex(), QVector<int>());
-    //emit dataChanged(index(0, 0), index(rowCount() - 1, 0));
 
     qDebug() << "addStudent():" << timer.elapsed();
 }
@@ -100,6 +103,7 @@ void Student::addStudentsInOneGo()
         m_students.append(Stud{r,QString("Student"+QString::number(r))});
     }
     endResetModel();
+
     qDebug() << "\naddStudentsInOneGo():" << timer.elapsed()<<"\n";
 }
 
@@ -107,11 +111,9 @@ void Student::addStudentsOneByOne()
 {
     QElapsedTimer timer;
     timer.start();
-
     for(int i=0;i<10;i++) {
         addStudent();
     }
-
     qDebug() << "\naddStudentsOneByOne():" << timer.elapsed()<<"\n";
 }
 
@@ -130,9 +132,34 @@ void Student::updateStudent()
     int n = m_students.size();
     int index1 = qrand() % n;
     Stud s = m_students.at(index1);
-    s.name = s.name + "updated";
+    s.name = s.name + "U";
     m_students[index1] = s;
     emit dataChanged(index(0, 0), index(rowCount() - 1, 0));
 
     qDebug() << "updateStudent():" << timer.elapsed();
+}
+
+void Student::insertStudent()
+{
+    QElapsedTimer timer;
+    timer.start();
+    insertRows(rowCount(),1);
+    qDebug() << "insertStudent():" << timer.elapsed();
+}
+
+void Student::insertMultipleStudents()
+{
+    QElapsedTimer timer;
+    timer.start();
+    insertRows(rowCount(),10);
+    qDebug() << "insertMultipleStudents():" << timer.elapsed();
+}
+
+void Student::insertMultipleStudentsOneByOne()
+{
+    QElapsedTimer timer;
+    timer.start();
+    for(int i=0;i<10;i++)
+    insertRows(rowCount(),1);
+    qDebug() << "insertMultipleStudentsOneByOne():" << timer.elapsed();
 }
