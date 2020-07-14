@@ -112,5 +112,16 @@ Window {
             }
         }
 
+        Button {
+            width: 200
+            height: 50
+            text: "Add students via Dialog"
+            onClicked: studDialog.open()
+        }
     }
+
+    StudDialog {
+        id: studDialog
+    }
+
 }

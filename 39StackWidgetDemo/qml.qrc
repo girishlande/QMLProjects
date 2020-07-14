@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>Studui.qml</file>
-        <file>StudDialog.qml</file>
+        <file>AboutPopup.qml</file>
+        <file>MyPage.qml</file>
     </qresource>
 </RCC>

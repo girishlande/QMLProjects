@@ -5,11 +5,13 @@ import QtQuick.Layouts 1.0
 import QtQuick.Controls 2.4
 
 Window {
+    id: root
     visible: true
     width: 1000
-    height: Screen.height
+    height: 500
     title: qsTr("Hello World")
 
+    property int activeIndex: 0
 
     Student {
         id:studentmodel
@@ -44,9 +46,15 @@ Window {
                         anchors.centerIn: parent
                         font.pointSize: 16
                         selectByMouse: true
+                        focus: index==root.activeIndex
                         onTextChanged: {
                             sname=snametext.text
                         }
+                        onAccepted: {
+                            root.activeIndex = (root.activeIndex+1)%studentmodel.rowCount()
+                        }
+
+                        activeFocusOnTab: true
                     }
                 }
                 Rectangle {

@@ -3,10 +3,11 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.4
 
 Window {
+    id: mainWindow
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
+    title: qsTr("createComponent() is always better to create components dynamically")
 
 
     Row {
@@ -31,7 +32,12 @@ Window {
             text: "createComponent()"
             onClicked: {
                 var popupComponent = Qt.createComponent("qrc:/TestPopup.qml")
-                var popup2 = popupComponent.createObject(item2);
+                //var popup2 = popupComponent.createObject(item2);
+                var options = {
+                    "width": Qt.binding(function() { return mainWindow.width/2 }),
+                    "height": Qt.binding(function() { return mainWindow.height/2 }),
+                };
+                var popup2 = popupComponent.createObject(parent, options);
                 popup2.open()
             }
 
@@ -39,11 +45,4 @@ Window {
 
     }
 
-
-    Text {
-        id: name
-        text: qsTr("Creating component dynamically(createComponent()) is better choice")
-        font.pointSize: 30
-        anchors.centerIn: parent
-    }
 }

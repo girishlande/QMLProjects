@@ -4,8 +4,6 @@ import QtQuick.Controls 2.4
 Popup {
     x: 100
     y: 100
-    width: 400
-    height: 400
     modal: true
     focus: true
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
