@@ -1,4 +1,5 @@
 # Integrating VTK into Qt Quick 2
+https://gist.github.com/nocnokneo/c3fb01bb7ecaf437f7d6
 
 This is a minimal proof-of-concept attempt at integrating VTK into a Qt Quick
 scene by rendering VTK to an OpenGL Framebuffer Object (FBO) and displaying

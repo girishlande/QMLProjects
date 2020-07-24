@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Fruits.qml</file>
+        <file>Vegetables.qml</file>
+        <file>Drinks.qml</file>
+        <file>MyScreen.qml</file>
+        <file>MyPopup.qml</file>
+    </qresource>
+</RCC>
