@@ -18,7 +18,7 @@ Slider {
         animator.start();
     }
 
-    orientation: Qt.Horizontal
+    orientation: Qt.Vertical
     width: root.horizontal ? root.sliderlength : root.sliderthickness * 2
     height: root.vertical ? root.sliderlength : root.sliderthickness * 2
     minimumValue: 0

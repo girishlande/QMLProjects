@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>GSlider.qml</file>
+        <file>images/arrow1.svg</file>
+        <file>images/arrow2.svg</file>
+        <file>images/arrow3.svg</file>
+        <file>ArrowMarker.qml</file>
+        <file>CustomSlider.qml</file>
+        <file>GColorpallete.qml</file>
+        <file>images/arrow4.svg</file>
+        <file>images/arrow5.svg</file>
+        <file>images/arrow6.svg</file>
+        <file>images/arrow7.svg</file>
+    </qresource>
+</RCC>
