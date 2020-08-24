@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Myex.qml</file>
+        <file>FilterView.qml</file>
+    </qresource>
+</RCC>

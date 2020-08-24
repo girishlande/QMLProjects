@@ -1,8 +1,8 @@
 import QtQuick 2.0
+import QtQuick.Layouts 1.12
 
 Text {
     text: ""
-    width: 100
+    Layout.fillWidth: true
     font.pixelSize: 20
-    anchors.verticalCenter: parent.verticalCenter
 }
