@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>GTableView.qml</file>
+        <file>TableModeldemo.qml</file>
+        <file>TableViewWithAnimation.qml</file>
+        <file>CustomTable.qml</file>
+    </qresource>
+</RCC>
