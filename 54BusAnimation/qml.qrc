@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/bus.jpg</file>
+        <file>images/wheel.png</file>
+        <file>TrafficSignal.qml</file>
+        <file>BusDemo.qml</file>
+    </qresource>
+</RCC>

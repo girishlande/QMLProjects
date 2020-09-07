@@ -10,3 +10,19 @@ Signals and Slots
 Positioners (Row, Column, Grid, Flow)
 Javascript
 
+
+Topic : QML by examples
+Topics: 
+
+Rectangle
+Anchors
+transformation 
+Layouts
+Connections
+Bindings
+Timer
+Model View Controller
+States and Transitions
+Animations
+
+
