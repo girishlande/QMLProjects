@@ -40,3 +40,7 @@ Exercises
 10. Use of canvas to create Graph demo and create notation lines 
 
 11. Create paint application using canvas 
+
+12. Create color pallete and show how to use it. 
+
+13. Create traffic signal and then show how it works
