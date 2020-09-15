@@ -5,17 +5,17 @@ Exercises
 1. Learn Rectangle properties 
    Create a 200X200 rectangle. red color. radius=10.  
    Add button in document. When you click on button it should change rectangle color.
-   change rotation of rectangle. Change scale of rectangle. 
+   also change rotation of rectangle. Change scale of rectangle. 
 
-2. Learn how to create Create custom control (Button) 
-   Create a 50X30 rectangle. color=steelblue.
+2. Learn how to create Create custom control (e.g Button) 
+   Create a 50X30 rectangle. color=steel-blue.
    Add Text in center and Add mouse Area.
-   On hover scale button size
+   On mouse hover, scale button size
    on mouse pressed and released change color 
 
 
 3. How anchors work. Create Rectangle and attach 9 other rectangles using anchors. 
-   Rotate This art using Button 
+   Rotate This art using Button click.
 	
 	
 4.  Create a text box and take user input. As user entered text should be shown in center of window
@@ -41,6 +41,10 @@ Exercises
 
 11. Create paint application using canvas 
 
-12. Create color pallete and show how to use it. 
+12. Create color pallete (Color picker) and make a component out of it. 
+    Create Rectangle whose color should change as you pick different color from color pallete.
 
-13. Create traffic signal and then show how it works
+13. Create traffic signal and then show how it works.
+    Create timer on top of it using particular font and show its use. 
+	
+	
