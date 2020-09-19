@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>fonts/digitalnormal.ttf</file>
+    </qresource>
+</RCC>
