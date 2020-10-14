@@ -1,15 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <student.h>
 
-int main(int argc, char *argv[])  {
-
-
-
+int main(int argc, char *argv[])
+{
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
-    qmlRegisterType<Student>("student",1,0,"Student");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

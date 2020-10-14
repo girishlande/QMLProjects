@@ -1,0 +1,26 @@
+
+Excercise
+>Property animation demo: Create a simple rectangle. On clicking that rectangle it should
+move from left to right of the window. Clicking again it should move from right to left of the screen.
+Keep 2 propertyanimations width different ids. on clicking mousearea of the rectangle start animations alternatively
+
+> RotationAnimation Demo: Create a rectangle and add text in the center. Click on the rectangle to start animation. 
+Click again to pause animation. Add RotationAnimation with direction property. 
+
+> Sequential animation Demo: Create a rectangle and add large text in center of it. Rotate text. Clip the text which 
+goes out of the rectangle. Add 2 scaleanimators in sequentialAnimation. One scaleanimation will increase size of 
+the rectangle and another will shrink size of the rectangle.
+
+> Opacity animation Demo: Add a ghost image on the black background. Add Sequentialanimation and add 2 OpacityAnimators 
+in it. One opacityAnimator should change opacity from 0 to 1 and another should change from 1 to 0. Keep duration different.
+It should be Spooky :-)
+
+> SmoothedAnimation Demo: Add 2 rectangles. One small and one large. Keep black background. Make one rectangle follow
+another rectangle. THis can be done by setting x and y value of rectangle , property bound to another rectangle. 
+And Add behavior on x and behavior on y. Inside behavior add SmoothedAnimation{ velocity: 100}
+
+> Antialiasing Demo: Add 2 circles with border width. Make rectangle transparent and keep border width to 20 and color
+to red. By default antialiasing will be TRUE. So explicitly make another rectangle opacity false. See the difference.
+
+> Key handling demo: Add 2 rectangles. Make outer one transparent with some border. Now on keys UP,DOWN,RIGHT,LEFT change
+size of the inner rectangle and observe how it changes. 
