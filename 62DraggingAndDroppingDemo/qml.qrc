@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>DragTile.qml</file>
+        <file>DropTile.qml</file>
+        <file>FootBall.qml</file>
+        <file>MultipleDropArea.qml</file>
+        <file>DragPerson.qml</file>
+        <file>images/1.png</file>
+        <file>images/2.png</file>
+        <file>images/3.png</file>
+        <file>images/4.png</file>
+        <file>images/5.png</file>
+        <file>ColorSelector.qml</file>
+        <file>ColorPalleteMovement.qml</file>
+        <file>ColorPicker.qml</file>
+    </qresource>
+</RCC>
