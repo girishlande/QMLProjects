@@ -8,8 +8,14 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+    }
+
     Grid {
         rows: 2
+        spacing: 20
 
         ProfilePicture {
             source: "qrc:/images/dada1.png"
@@ -22,6 +28,9 @@ Window {
         }
         ProfilePicture {
             source: "qrc:/images/sanu3.png"
+        }
+        ProfilePicture {
+            source: "qrc:/images/1.png"
         }
     }
 
