@@ -16,6 +16,15 @@ Window {
         id: s
     }
 
+    Text {
+        id: titlmessage
+        text: qsTr("Various methods to add data in C++ model. \nClick on buttons and check time required in output window")
+        font.pointSize: 16
+        width: parent.width/2
+        height: 100
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+        anchors.right: parent.right
+    }
     Column {
         width: parent.width/2
         height: parent.height
@@ -76,5 +85,43 @@ Window {
             }
         }
 
+        Button {
+            width: 200
+            height: 50
+            text: "Insert a Student"
+            onClicked: {
+                stud.insertStudent();
+            }
+        }
+
+        Button {
+            width: 200
+            height: 50
+            text: "Insert 10 Students in One GO"
+            onClicked: {
+                stud.insertMultipleStudents();
+            }
+        }
+
+        Button {
+            width: 200
+            height: 50
+            text: "Insert 10 Students one by one"
+            onClicked: {
+                stud.insertMultipleStudentsOneByOne();
+            }
+        }
+
+        Button {
+            width: 200
+            height: 50
+            text: "Add students via Dialog"
+            onClicked: studDialog.open()
+        }
     }
+
+    StudDialog {
+        id: studDialog
+    }
+
 }

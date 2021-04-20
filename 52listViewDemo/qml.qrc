@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ListViewDemo.qml</file>
+        <file>ContactModel.qml</file>
+        <file>ListViewSelection.qml</file>
+    </qresource>
+</RCC>

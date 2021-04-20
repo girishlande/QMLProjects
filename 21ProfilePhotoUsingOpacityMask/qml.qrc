@@ -6,5 +6,6 @@
         <file>images/sanu2.png</file>
         <file>images/sanu3.png</file>
         <file>ProfilePicture.qml</file>
+        <file>images/1.png</file>
     </qresource>
 </RCC>

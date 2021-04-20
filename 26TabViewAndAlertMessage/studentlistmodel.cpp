@@ -5,11 +5,6 @@ StudentListModel::StudentListModel(QObject *parent)
 {
 }
 
-QVariant StudentListModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    // FIXME: Implement me!
-}
-
 bool StudentListModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role)
 {
     if (value != headerData(section, orientation, role)) {

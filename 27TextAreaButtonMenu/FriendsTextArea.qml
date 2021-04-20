@@ -55,7 +55,7 @@ TextArea {
         id: backgroundRect
         border.color: "green"
         border.width: scaledInt(2)
-        color: "blue"
+        color: "steelblue"
         radius: scaledInt(3)
         height: root.height + friendsMenu.menuHeight + internal.textPadding
         width: !friendsMenu.isMenuVisible ? root.width : friendsMenu.menuWidth + leftPadding

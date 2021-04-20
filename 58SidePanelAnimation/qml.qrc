@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>DrawerPanel.qml</file>
+    </qresource>
+</RCC>

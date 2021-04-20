@@ -88,5 +88,7 @@ Now copy this file in debug/release folder based on which version you are runnin
 For eg. for me its 
 D:\test\build-translationdemo-Desktop_Qt_5_13_0_MinGW_64_bit-Debug
 
+Once you change settings of your computer to given language. It will automatically show your application in 
+that particular language.
 
 

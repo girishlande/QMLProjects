@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Studui.qml</file>
+        <file>StudDialog.qml</file>
     </qresource>
 </RCC>

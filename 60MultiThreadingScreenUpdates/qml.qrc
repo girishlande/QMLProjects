@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CurrentStudentView.qml</file>
+        <file>ClassRoomsView.qml</file>
+    </qresource>
+</RCC>

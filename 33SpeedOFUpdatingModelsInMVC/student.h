@@ -31,7 +31,9 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex& index) const override;
 
-     virtual QHash<int,QByteArray> roleNames() const;
+    virtual QHash<int,QByteArray> roleNames() const;
+
+    bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
 
     Q_INVOKABLE void addStudent();
 
@@ -39,6 +41,10 @@ public:
     Q_INVOKABLE void addStudentsOneByOne();
     Q_INVOKABLE void clearStudents();
     Q_INVOKABLE void updateStudent();
+
+    Q_INVOKABLE void insertStudent();
+    Q_INVOKABLE void insertMultipleStudents();
+    Q_INVOKABLE void insertMultipleStudentsOneByOne();
 
 private:
 
