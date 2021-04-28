@@ -20,6 +20,9 @@ public:
     enum WaveType {
         RandomWave=0,
         ECGWave,
+        ECGWave1,
+        ECGWave2,
+        ECGWave3,
         SineWave,
         SquareWave
     };
@@ -29,6 +32,7 @@ public:
     Q_PROPERTY(int xMax READ xMax WRITE setXMax NOTIFY xMaxChanged)
     Q_PROPERTY(int yMin READ yMin WRITE setYMin NOTIFY yMinChanged)
     Q_PROPERTY(int yMax READ yMax WRITE setYMax NOTIFY yMaxChanged)
+    Q_PROPERTY(int timerDelay READ timerDelay WRITE setTimerDelay NOTIFY timerDelayChanged)
     Q_PROPERTY(WaveType wavetype READ wavetype WRITE setWaveType NOTIFY wavetypeChanged)
     explicit PointGenerator(QObject *parent = nullptr);
 
@@ -48,6 +52,9 @@ public:
     int yMax();
     void setYMax(int ymax);
 
+    int timerDelay();
+    void setTimerDelay(int timer);
+
     WaveType wavetype();
     void setWaveType(WaveType type);
 
@@ -56,11 +63,13 @@ signals:
     void xMaxChanged();
     void yMinChanged();
     void yMaxChanged();
+    void timerDelayChanged();
     void wavetypeChanged();
 
 protected:
     void ReadWaveformPoints();
-    void AddWaveformPoint(QLineSeries* current);
+    void AddPointToRandomWave(QLineSeries* prev,QLineSeries* current);
+    void AddWaveformPoint(QLineSeries* prev,QLineSeries* current);
     void AddPointsToWave();
 
 private:
@@ -86,6 +95,8 @@ private:
     int m_xMax;
     int m_yMin;
     int m_yMax;
+
+    int m_timerdelay=10;
 };
 
 #endif // POINTGENERATOR_H

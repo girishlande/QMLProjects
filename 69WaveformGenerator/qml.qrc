@@ -15,5 +15,8 @@
         <file>wavedata/ecg.txt</file>
         <file>wavedata/sine.txt</file>
         <file>wavedata/square.txt</file>
+        <file>wavedata/ecg1.txt</file>
+        <file>wavedata/ecg2.txt</file>
+        <file>wavedata/ecg3.txt</file>
     </qresource>
 </RCC>

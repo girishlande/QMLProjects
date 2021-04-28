@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>DrawerPanel.qml</file>
+        <file>ChartView1.qml</file>
+        <file>View1.qml</file>
+        <file>images/max1.png</file>
+        <file>images/min1.png</file>
+        <file>wavedata/ecg.txt</file>
+        <file>wavedata/ecg1.txt</file>
+        <file>wavedata/ecg2.txt</file>
+        <file>wavedata/ecg3.txt</file>
+        <file>wavedata/ecgugly.txt</file>
+        <file>wavedata/sine.txt</file>
+        <file>wavedata/square.txt</file>
+    </qresource>
+</RCC>

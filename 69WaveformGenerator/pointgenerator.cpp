@@ -8,7 +8,6 @@ PointGenerator::PointGenerator(QObject *parent) : QObject(parent)
 {
     m_counter = 0;
     m_timer = new QTimer(this);
-    m_timer->setInterval(10);
     connect(m_timer, &QTimer::timeout, this, &PointGenerator::AddPointsToWave);
 }
 
@@ -16,6 +15,7 @@ void PointGenerator::setSeries(QAbstractSeries* series1,QAbstractSeries* series2
     ReadWaveformPoints();
     m_lineSeries1 = (QLineSeries*)series1;
     m_lineSeries2 = (QLineSeries*)series2;
+    m_timer->setInterval(m_timerdelay);
     m_timer->start();
 }
 
@@ -33,6 +33,7 @@ void PointGenerator::reset()
     m_pointCounter = -1;
 
     ReadWaveformPoints();
+    m_timer->setInterval(m_timerdelay);
     m_timer->start();
 }
 
@@ -87,6 +88,19 @@ void PointGenerator::setYMax(int ymax)
     }
 }
 
+int PointGenerator::timerDelay()
+{
+    return m_timerdelay;
+}
+
+void PointGenerator::setTimerDelay(int timer)
+{
+    if (m_timerdelay!=timer) {
+        m_timerdelay = timer;
+        emit timerDelayChanged();
+    }
+}
+
 PointGenerator::WaveType PointGenerator::wavetype()
 {
     return m_type;
@@ -109,26 +123,37 @@ void PointGenerator::AddPointsToWave() {
         prev = m_lineSeries1;
     }
 
-    if (prev->count())
-        prev->remove(0);
     if (m_type==RandomWave)
-        current->append(current->count(),rand()%100);
+        AddPointToRandomWave(prev,current);
     else
-        AddWaveformPoint(current);
+        AddWaveformPoint(prev,current);
 
     if (current->count()) {
         float px = current->at(current->count()-1).x();
         if (px>=m_xMax) {
             m_counter = 0;
+            m_pointCounter = -1;
             m_firstWave = !m_firstWave;
         }
     }
+}
+
+void PointGenerator::AddPointToRandomWave(QLineSeries* prev,QLineSeries* current) {
+    if (prev->count())
+        prev->remove(0);
+    current->append(current->count(),rand()%m_yMax);
 }
 
 void PointGenerator::ReadWaveformPoints()
 {
     qDebug() << "ReadWaveformPoints:" << m_type;
     QString fileName(":/wavedata/ecg.txt");
+    if (m_type==ECGWave1)
+        fileName = QString(":/wavedata/ecg1.txt");
+    if (m_type==ECGWave2)
+        fileName = QString(":/wavedata/ecg2.txt");
+    if (m_type==ECGWave3)
+        fileName = QString(":/wavedata/ecg3.txt");
     if (m_type==SineWave)
         fileName = QString(":/wavedata/sine.txt");
     if (m_type==SquareWave)
@@ -143,7 +168,8 @@ void PointGenerator::ReadWaveformPoints()
     m_wmaxY = data.maxY();
 }
 
-void PointGenerator::AddWaveformPoint(QLineSeries* current) {
+void PointGenerator::AddWaveformPoint(QLineSeries* prev,QLineSeries* current) {
+
     m_pointCounter = (m_pointCounter + 1) % waveformPoints.size();
     float ex = waveformPoints[m_pointCounter].x;
     float ey = waveformPoints[m_pointCounter].y;
@@ -162,5 +188,8 @@ void PointGenerator::AddWaveformPoint(QLineSeries* current) {
         }
         ex = px + diff;
     }
+    if (prev->count())
+        prev->remove(0);
+
     current->append(ex,targetYpos);
 }

@@ -9,37 +9,52 @@ ChartView {
     property bool gridvisible: true
     property bool linevisible: true
     property bool labelvisible: true
-    property var xTickCount: 5
-    property var yTickCount: 5
+    property var xTickCount: 100
+    property var yTickCount: 13
     property var xMin: 0
-    property var xMax: 300
+    property var xMax: 100
     property var yMin: 0
     property var yMax: 100
     property alias color1: series1.color
     property alias color2: series2.color
     property alias wavetype: pointgen.wavetype
 
+    signal setTimerDelay(int value);
     signal setWaveType(int index);
+
+    onSetTimerDelay: {
+        pointgen.timerDelay = value;
+        pointgen.reset();
+    }
+
     onSetWaveType: {
         console.log("Set wave type:"+index);
         if (index==0)
             pointgen.wavetype=PointGenerator.ECGWave;
         if (index==1)
-            pointgen.wavetype=PointGenerator.SineWave;
+            pointgen.wavetype=PointGenerator.ECGWave1;
         if (index==2)
-            pointgen.wavetype=PointGenerator.SquareWave;
+            pointgen.wavetype=PointGenerator.ECGWave2;
         if (index==3)
+            pointgen.wavetype=PointGenerator.ECGWave3;
+        if (index==4)
+            pointgen.wavetype=PointGenerator.SineWave;
+        if (index==5)
+            pointgen.wavetype=PointGenerator.SquareWave;
+        if (index==6)
             pointgen.wavetype=PointGenerator.RandomWave;
         pointgen.reset();
     }
 
-    width: parent.width
-    height: 200
+    onXMaxChanged: pointgen.reset();
+    onYMaxChanged: pointgen.reset();
 
+    width: parent.width
+    height: 300
     legend.visible: false
     antialiasing: true
     backgroundColor: "black"
-    theme: ChartView.ChartThemeDark
+    theme: ChartView.ChartThemeDark // ChartView.ChartThemeDark
 
     PointGenerator {
         id: pointgen
@@ -75,11 +90,14 @@ ChartView {
         axisX: axisX
         axisY: axisY
         color: "cyan"
+        width: 3
+        style: Qt.SolidLine
     }
     LineSeries {
         id: series2
         axisX: axisX
         axisY: axisY
+        width: 3
         color: "orange"
     }
 
