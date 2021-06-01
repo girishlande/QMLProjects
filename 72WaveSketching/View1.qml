@@ -93,7 +93,7 @@ Item {
     function rotateVector(vec,ang) {
         ang = ang * (Math.PI/180);
         return { 'x':vec.x * Math.cos(ang) - vec.y * Math.sin(ang),
-                  'y':vec.x * Math.sin(ang) + vec.y * Math.cos(ang)};
+            'y':vec.x * Math.sin(ang) + vec.y * Math.cos(ang)};
     }
 
     function calculateCrossPoints(p1,p2) {
@@ -175,7 +175,7 @@ Item {
         ValueAxis {
             id: axisX
             min: 0
-            max: 30
+            max: 100
             tickCount: 20
             labelsVisible: false
             lineVisible: false
@@ -184,8 +184,8 @@ Item {
         ValueAxis {
             id: axisY
             min: 0
-            max: 20
-            tickCount: 30
+            max: 256
+            tickCount: 50
             labelsVisible: false
             lineVisible: false
         }
@@ -235,17 +235,36 @@ Item {
                 }
                 onReleased: {
                     root.dragging = false;
+                    for(var j=0;j<annotationPoints.length;j++) {
+                        console.log("I:" + j + " X:" + annotationPoints[j].x + " Y:" + annotationPoints[j].y )
+                    }
                 }
                 onMouseXChanged: {
                     if (root.dragging) {
-                        annotationPoints.push({x:mouseX,y:mouseY});
+                        var len = annotationPoints.length;
+                        if (len>0) {
+                            var prevX = annotationPoints[len-1].x;
+                            var prevY = annotationPoints[len-1].y;
+                            if ((mouseX-prevX)>=1)
+                                annotationPoints.push({x:mouseX,y:mouseY});
+                        } else{
+                            annotationPoints.push({x:mouseX,y:mouseY});
+                        }
                     }
                     drawingCanvas.requestPaint();
                 }
 
                 onMouseYChanged: {
                     if (root.dragging) {
-                        annotationPoints.push({x:mouseX,y:mouseY});
+                        var len = annotationPoints.length;
+                        if (len>1) {
+                            var prevX = annotationPoints[len-1].x;
+                            var prevY = annotationPoints[len-1].y;
+                            if ((mouseX-prevX)>=1)
+                                annotationPoints.push({x:mouseX,y:mouseY});
+                        } else{
+                            annotationPoints.push({x:mouseX,y:mouseY});
+                        }
                     }
                     drawingCanvas.requestPaint();
                 }

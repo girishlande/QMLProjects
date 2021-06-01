@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>RadioButton2.qml</file>
+    </qresource>
+</RCC>

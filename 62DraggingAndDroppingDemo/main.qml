@@ -10,7 +10,11 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    ColorPicker{
+//    ColorPicker{
+
+//    }
+
+    FootBall {
 
     }
 

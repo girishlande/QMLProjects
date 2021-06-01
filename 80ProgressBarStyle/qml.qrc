@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MyProgress.qml</file>
+        <file>MyProgress1.qml</file>
+        <file>ProgressStyle1.qml</file>
+        <file>MyProgress2.qml</file>
+    </qresource>
+</RCC>

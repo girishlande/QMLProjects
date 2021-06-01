@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CurveColorUpdater.qml</file>
+        <file>CurveColorModel.qml</file>
+    </qresource>
+</RCC>
