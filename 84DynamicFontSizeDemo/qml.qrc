@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>GameSettings.qml</file>
+        <file>qmldir</file>
+    </qresource>
+</RCC>
