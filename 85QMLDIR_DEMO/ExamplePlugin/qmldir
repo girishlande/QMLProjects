@@ -1,0 +1,4 @@
+module ExamplePlugin
+MyRect 1.0 qrc:/MyRect.qml
+MyRect 1.1 qrc:/MyRect1.qml
+plugin ExamplePlugin
