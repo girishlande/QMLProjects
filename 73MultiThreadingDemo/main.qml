@@ -11,7 +11,7 @@ Item {
     width: Screen.width/2
     height: Screen.height/2
 
-    property int modelSize: 4
+    property int modelSize: 2
 
     Rectangle {
         id: backgroundRect
@@ -50,8 +50,8 @@ Item {
                                 anchors.centerIn: parent
                             }
                             PointGenerator {
-                                id:pg
-                                pid: index + 2
+                                id: pg
+                                pid: index + 1
                                 Component.onCompleted: {
                                     pg.init();
                                 }

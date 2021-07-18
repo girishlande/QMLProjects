@@ -36,8 +36,10 @@ void PointGenerator::setPid(int id)
 
 void PointGenerator::init()
 {
+    qInfo() << "ini() :" << QThread::currentThread() << " id:" <<m_id;
     QThread* thread = new QThread;
     Worker* worker = new Worker(m_id);
+    worker->setObjectName("Worker thread");
     worker->moveToThread(thread);
     connect(worker, SIGNAL (error(QString)), this, SLOT (errorString(QString)));
     connect(worker, SIGNAL (processed(int)), this, SLOT (processed(int)));
@@ -55,5 +57,6 @@ void PointGenerator::errorString(QString error)
 
 void PointGenerator::processed(int i)
 {
+    qInfo() <<"processed Thread:" << QThread::currentThread();
     setIvalue(i);
 }
