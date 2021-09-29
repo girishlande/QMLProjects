@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Indicator.qml</file>
+        <file>RadioGroup.qml</file>
+        <file>RadioButton.qml</file>
+    </qresource>
+</RCC>
