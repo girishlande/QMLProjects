@@ -8,6 +8,14 @@ Window {
     visible: true
     width: Screen.width / 2
     height: Screen.height / 2
+	
+	
+	function myFunc() {
+	     // do something in QML on C++ event 
+	
+	}
+	
+	
     GreeterComponent {
         id: myGreeter
 
